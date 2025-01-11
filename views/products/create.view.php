@@ -16,13 +16,15 @@
             'type' => 'text',
             'name' => 'product-title',
             'label' => 'Product Title',
-            'error' => $errors['title'] ?? null  
+            'error' => $errors['title'] ?? null,
+            'value' => $valueData['title']
           ]);
           inputField([
             'type' => 'text',
             'name' => 'product-price',
             'label' => 'Price',
-            'error' => $errors['price'] ?? null 
+            'error' => $errors['price'] ?? null,
+            'value' => $valueData['price']
           ]);
           inputField([
             'type' => 'text',
@@ -44,7 +46,8 @@
             'type' => 'textarea',
             'name' => 'product-description',
             'label' => 'Description',
-            'error' => $errors['description'] ?? null
+            'error' => $errors['description'] ?? null,
+            'value' => $valueData['description']
           ])
         ?>
         <button type="submit" class="add-product-btn">Add Product</button>
