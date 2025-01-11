@@ -10,7 +10,7 @@ class Product_model {
     $statement = $connect->prepare('INSERT INTO products(title, description, stocks, quantity, price, userID) VALUES(:title, :description, :stocks, :quantity, :price, :userID)');
     $statement->bindValue(':title', $productData['title'], PDO::PARAM_STR);
     $statement->bindValue(':description', $productData['description'], PDO::PARAM_STR);
-    $statement->bindValue(':stocks', $productData['stocks'], PDO::PARAM_STR);
+    $statement->bindValue(':stocks', $productData['stocks'], PDO::PARAM_INT);
     $statement->bindValue(':quantity', $productData['quantity'], PDO::PARAM_INT);
     $statement->bindValue(':price', $productData['price'], PDO::PARAM_STR);
     $statement->bindValue(':userID', Database::defaultUserID());
@@ -32,5 +32,35 @@ class Product_model {
       ];
     }
     return $result;
+  }
+
+  public static function getProductByID($productID) {
+    $connect = Database::connect();
+    $statement = $connect->prepare('SELECT * FROM products WHERE id = :id AND userID = :userID');
+    $statement->bindValue(':id', $productID, PDO::PARAM_INT);
+    $statement->bindValue(':userID', Database::defaultUserID());
+    $statement->execute();
+
+    $result = $statement->fetch();
+    if(!$result) {
+      return [
+        'message' => 'No product found.'
+      ];
+    }
+    return $result;
+  }
+
+  public static function deleteProductByID($productID) {
+    $connect = Database::connect();
+    $statement = $connect->prepare('DELETE FROM products WHERE id = :id AND userID = :userID');
+    $statement->bindValue(':id', $productID, PDO::PARAM_INT);
+    $statement->bindValue(':userID', Database::defaultUserID());
+
+    $statement->execute();
+
+    if($statement->rowCount() > 0) {
+      return true;
+    }
+    return false;
   }
 }
