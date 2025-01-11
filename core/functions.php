@@ -24,7 +24,7 @@ function loadFont() {
   return '<link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-  <link href="/assets/css/main.css" rel="stylesheet"/>';
+  ';
 }
 
 function inputField($inputData) {
@@ -66,10 +66,29 @@ function redirectURL($url) {
 }
 
 function formatPrice($number) {
-  return '$' . number_format($number, 2, '.', ',');
+  return '$' . number_format(clean($number), 2, '.', ',');
 }
 
 function formatDate($date, $format = 'M j, Y') {
   $timestamp = strtotime($date);
   return date($format, $timestamp);
+}
+
+function clean($value) {
+  return htmlspecialchars($value);
+}
+
+function formatStockStatus($value) {
+  if((int)$value === 1) {
+    return 'In stocks';
+  }
+  return 'Out of stocks';
+}
+
+function loadSVG($svgFile) {
+  include_once BASE_PATH . 'public/assets/images/' . $svgFile;
+}
+
+function loadStylesheet($fileName) {
+  echo '<link href="/assets/css/'.$fileName.'" rel="stylesheet"/>';
 }
