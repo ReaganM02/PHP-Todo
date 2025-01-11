@@ -4,7 +4,6 @@ namespace Core;
 
 class Router {
   protected $routes = [];
-
   public function add($uri, $controller, $method) {
     $this->routes[] = [
       'uri' => $uri,
@@ -27,10 +26,18 @@ class Router {
 
   public function route($uri, $method) {
     foreach($this->routes as $route) {
-      if($route['uri'] === $uri) {
-        echo 'Loaded';
+      if($route['uri'] === $uri && $method === $route['method']) {
         loadController($route['controller']);
+        die();
       }
     }
+    $this->pageNotFound();
   }
+
+  public function pageNotFound() {
+    http_response_code(404);
+    loadView('404.php');
+    die();
+  }
+
 }
