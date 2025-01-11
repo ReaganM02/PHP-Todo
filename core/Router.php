@@ -20,6 +20,10 @@ class Router {
     $this->add($uri, $controller, 'POST');
   }
 
+  public function delete($uri, $controller) {
+    $this->add($uri, $controller, 'DELETE');
+  }
+
   public function path($uri, $controller) {
     $this->add($uri, $controller, 'PATH');
   }
