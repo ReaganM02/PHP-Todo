@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Create a product listing</title>
   <?php echo loadFont(); ?>
+  <?php echo loadStylesheet('main.css'); ?>
+  <?php echo loadStylesheet('create.css'); ?>
 </head>
 <body>
   <main class="center-content">
@@ -38,8 +40,8 @@
             'name' => 'product-status',
             'label' => 'Status',
             'options' => [
-              'in-stock' => 'In stock',
-              'out-of-stock' => 'Out of stocks'
+              '1' => 'In stock',
+              '0' => 'Out of stocks'
             ],
             ]);
           inputField([
