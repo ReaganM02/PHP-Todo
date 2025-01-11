@@ -1,0 +1,72 @@
+.form-field-label {
+  display: block;
+  font-size: 0.90rem;
+  color: var(--zinc-600);
+  margin-bottom: 0.4rem;
+}
+
+.form-field-input {
+  min-height: 2.5rem;
+  border-radius: 0.5rem;
+  border: 0.08rem solid var(--zinc-300);
+  width: 100%;
+  padding-left: 0.4rem;
+  font-size: 0.90rem;
+  color: var(--zinc-600);
+}
+
+.form-field-wrapper {
+  margin-bottom: 1rem;
+}
+
+.form-field-wrapper .form-field-select {
+  width: 100%;
+  height: 2.5rem;
+  background-color: #fff;
+  border: 1px solid var(--zinc-300);
+  border-radius: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.add-product-btn {
+  font-size: 0.85rem;
+  background-color: var(--blue-700);
+  color: #fff;
+  border: 0;
+  width: 10rem;
+  height: 2.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04rem;
+  font-weight: 700;
+  border-radius: 20rem;
+  font-family: inherit;
+  cursor: pointer;
+  margin-top: 1.1rem;
+}
+
+.add-product-btn:hover {
+  background-color: var(--blue-800);
+}
+
+.form-field-textarea {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--zinc-300);
+  height: 6rem;
+  padding-top: 0.4rem;
+  padding-left: 0.5rem;
+  color: var(--zinc-600);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.form-field-error-message {
+  color: var(--red-500);
+  font-size: 0.90rem;
+  margin-top: 0.5rem;
+}
+
+.form-field-wrapper.field-error input,
+.form-field-wrapper.field-error textarea {
+  border: 0.08rem solid var(--red-400);
+}

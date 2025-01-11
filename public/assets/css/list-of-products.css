@@ -1,0 +1,132 @@
+table {
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: 1rem;
+  text-align: left;
+}
+
+table th {
+  font-size: .85em;
+  text-transform: uppercase;
+  color: var(--zinc-600);
+}
+
+table tbody td.in-stocks {
+  font-weight: 700;
+  color: var(--green-500);
+}
+
+table thead tr {
+  border-bottom: 0.02rem solid var(--zinc-400);
+  background-color: var(--zinc-100);
+}
+
+table td {
+  font-size: 0.90rem;
+  color: var(--zinc-600);
+}
+
+tbody tr:nth-of-type(even) {
+  background: var(--zinc-100);
+}
+
+tbody tr:hover {
+  transition: 300ms;
+  background-color: var(--zinc-200);
+}
+
+.table-action {
+  display: flex;
+  gap: 1rem;
+}
+
+.table-action a {
+  text-decoration: none;
+}
+
+.table-action .action-view {
+  color: var(--blue-700);
+}
+
+.table-action .action-delete {
+  color: var(--red-600);
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 0.02 solid var(--zinc-200);
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+
+.no-products-found {
+  padding: 10px;
+  color: var(--zinc-300);
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.heading-and-action {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  align-items: center;
+}
