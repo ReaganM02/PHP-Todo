@@ -42,7 +42,7 @@ function inputField($inputData) {
 
      <select class="form-field-select" name="<?php echo $inputData['name'] ?>" id="<?php echo $inputData['name'] ?>">
       <?php foreach($inputData['options'] as $key => $option): ?>
-        <option value="<?php echo $key ?>"><?php echo $option ?></option>
+        <option <?php echo  isset($inputData['selected']) && abs($inputData['selected']) === abs($key) ? 'selected="selected"' : '' ?> value="<?php echo $key ?>"><?php echo $option ?></option>
       <?php endforeach; ?>  
      </select>
         
