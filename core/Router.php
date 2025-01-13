@@ -24,9 +24,9 @@ class Router {
     $this->add($uri, $controller, 'DELETE');
   }
 
-  public function path($uri, $controller) {
-    $this->add($uri, $controller, 'PATH');
-  }
+  public function patch($uri, $controller) {
+    $this->add($uri, $controller, 'PATCH');
+  }  
 
   public function route($uri, $method) {
     foreach($this->routes as $route) {
