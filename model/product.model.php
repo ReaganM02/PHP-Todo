@@ -63,4 +63,22 @@ class Product_model {
     }
     return false;
   }
+  
+  public static function findByIdAndUpdate($productID, $productData) {
+    $connect = Database::connect();
+    $statement = $connect->prepare('UPDATE products SET title = :title, price = :price, quantity = :quantity, stocks = :stocks, description = :description, userID = :userID WHERE id = :id');
+    $statement->bindValue(':id', $productID, PDO::PARAM_INT);
+    $statement->bindValue(':title', $productData['title'], PDO::PARAM_STR);
+    $statement->bindValue(':description', $productData['description'], PDO::PARAM_STR);
+    $statement->bindValue(':stocks', $productData['stocks'], PDO::PARAM_INT);
+    $statement->bindValue(':quantity', $productData['quantity'], PDO::PARAM_INT);
+    $statement->bindValue(':price', $productData['price'], PDO::PARAM_STR);
+    $statement->bindValue(':userID', Database::defaultUserID());
+    
+
+    if($statement->execute()) {
+      return true;
+    }
+    return false;
+  }
 }
