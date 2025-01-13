@@ -67,16 +67,6 @@ main.center-content {
   color: var(--zinc-700);
 }
 
-.list-of-products {
-  max-width: 70rem;
-  width: 100%;
-  margin: 2rem;
-  position: relative;
-  z-index: 5;
-  border-radius: 0.8rem;
-  padding: 1rem;
-}
-
 .with-overlay {
   position: absolute;
   top: 0;
@@ -84,46 +74,6 @@ main.center-content {
   right: 0;
   bottom: 0;
   background-color: var(--zinc-100);
-}
-
-.product-table {
-  margin: 1rem;
-  border-radius: 0.3rem;
-  border: 0.02px solid var(--zinc-300);
-  background-color: #fff;
-}
-
-.heading-and-action h1 {
-  font-size: 1.2rem;
-  color: var(--zinc-700);
-}
-
-.add-new-product {
-  text-decoration: none;
-  background-color: var(--blue-700);
-  color: var(--blue-100);
-  padding: 0.6rem 0.9rem;
-  border-radius: 0.3rem;
-  text-transform: uppercase;
-  font-size: 0.80rem;
-  font-weight: 800;
-  letter-spacing: 0.04rem;
-}
-
-.primary-column {
-  width: 30%;
-}
-
-.action-column {
-  width: 10rem;
-}
-
-.action-form-delete button {
-  background-color: transparent;
-  border: 0;
-  color: var(--red-600);
-  font-size: 0.85rem;
-  cursor: pointer;
 }
 
 .empty-add-product-action,

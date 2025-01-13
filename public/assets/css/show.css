@@ -18,6 +18,7 @@
 
 .placeholder-img img {
   width: 100%;
+  border-radius: 1rem;
 }
 
 .content-wrapper {
@@ -69,4 +70,10 @@
 .single-product-description {
   font-size: 1.1rem;
   color: var(--zinc-500);
+}
+
+.list-of-products {
+  max-width: 80rem;
+  width: 100%;
+  margin: 3rem;
 }
