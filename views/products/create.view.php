@@ -52,7 +52,13 @@
             'value' => $valueData['description']
           ])
         ?>
-        <button type="submit" class="add-product-btn">Add Product</button>
+        <div class="form-actions">
+          <a type="submit" class="go-back-to-home" href="/">Go Back</a>
+          <div class="form-button-actions">
+            <button type="reset" class="reset-form">Reset</button>
+            <button type="submit" class="add-product-btn">Add Product</button>
+          </div>
+        </div>
       </form>
    </div>
   </main>
