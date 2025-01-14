@@ -7,3 +7,4 @@ $router->post('/product/create', 'products/store.php');
 $router->delete('/product/delete', 'products/destroy.php');
 $router->get('/product/edit', 'products/edit.php');
 $router->patch('/product/update', 'products/update.php');
+$router->post('/product/place-order', 'products/order.php');
