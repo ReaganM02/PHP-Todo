@@ -7,13 +7,14 @@ class Product_model {
   protected static $connection;
   public static function create($productData) {
     $connect = Database::connect();
-    $statement = $connect->prepare('INSERT INTO products(title, description, stocks, quantity, price, userID) VALUES(:title, :description, :stocks, :quantity, :price, :userID)');
+    $statement = $connect->prepare('INSERT INTO products(title, description, stocks, quantity, price, userID, orders) VALUES(:title, :description, :stocks, :quantity, :price, :userID, :orders)');
     $statement->bindValue(':title', $productData['title'], PDO::PARAM_STR);
     $statement->bindValue(':description', $productData['description'], PDO::PARAM_STR);
     $statement->bindValue(':stocks', $productData['stocks'], PDO::PARAM_INT);
     $statement->bindValue(':quantity', $productData['quantity'], PDO::PARAM_INT);
     $statement->bindValue(':price', $productData['price'], PDO::PARAM_STR);
     $statement->bindValue(':userID', Database::defaultUserID());
+    $statement->bindValue(':orders', 0, PDO::PARAM_INT);
     if($statement->execute()) {
       return true;
     }else {
@@ -77,6 +78,31 @@ class Product_model {
     
 
     if($statement->execute()) {
+      return true;
+    }
+    return false;
+  }
+
+
+  public static function placeOrder($productID) {
+    $connect = Database::connect();
+    $foundProduct = $connect->prepare('SELECT * from products WHERE id = :id AND userID = :userID');
+    $foundProduct->bindValue(':id', $productID, PDO::PARAM_INT);
+    $foundProduct->bindValue(':userID', Database::defaultUserID());
+
+    $foundProduct->execute();
+
+    $productData = $foundProduct->fetch();
+
+    $orders = (int) $productData['orders'];
+    $orders += 1;
+
+    $orderStatement = $connect->prepare('UPDATE products SET orders = :orders WHERE id = :id AND userID = :userID');
+    $orderStatement->bindValue(':id', $productID, PDO::PARAM_INT);
+    $orderStatement->bindValue(':userID', Database::defaultUserID());
+    $orderStatement->bindValue(':orders', $orders, PDO::PARAM_INT);
+    
+    if($orderStatement->execute()) {
       return true;
     }
     return false;
