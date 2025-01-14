@@ -31,9 +31,14 @@
          <div class="single-product-description"><?php echo clean($product['description']); ?> </div>
          <div class="single-product-price"><?php echo formatPrice($product['price']); ?> </div>
          <div class="single-product-quantity">Remaining stocks: <?php echo clean($product['quantity']); ?> </div>
-         <form class="place-order-form">
+         <?php if($product['stocks']): ?>
+         <form class="place-order-form" method="POST" action="/product/place-order">
+          <input type="hidden" name="product-id" value="<?php echo abs($product['id']); ?>"/>
           <button type="submit">Place an Order</button>
          </form>
+         <?php else: ?>
+          <div class="single-product-out-of-stocks">Out of stocks</div>
+         <?php endif; ?> 
        </div>
      </div>
      <?php endif; ?>
