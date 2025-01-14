@@ -22,15 +22,25 @@
 }
 
 .add-new-product {
-  text-decoration: none;
+  font-size: 0.85rem;
   background-color: var(--blue-700);
-  color: var(--blue-100);
-  padding: 0.6rem 0.9rem;
-  border-radius: 0.3rem;
+  color: #fff;
+  border: 0;
+  width: 10rem;
+  height: 2.7rem;
   text-transform: uppercase;
-  font-size: 0.80rem;
-  font-weight: 800;
   letter-spacing: 0.04rem;
+  font-weight: 700;
+  border-radius: 0.2rem;
+  font-family: inherit;
+  cursor: pointer;
+  display: grid;
+  text-decoration: none;
+  place-items: center;
+}
+
+.add-new-product:hover {
+  background-color: var(--blue-800);
 }
 
 .primary-column {

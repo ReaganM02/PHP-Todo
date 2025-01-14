@@ -46,17 +46,28 @@
 }
 
 .place-order-form button {
+  font-size: 0.85rem;
   background-color: var(--blue-700);
-  color: white;
+  color: #fff;
   border: 0;
   width: 10rem;
-  height: 2.4rem;
+  height: 2.7rem;
   text-transform: uppercase;
+  letter-spacing: 0.04rem;
   font-weight: 700;
+  border-radius: 0.2rem;
   font-family: inherit;
-  border-radius: 2rem;
   cursor: pointer;
+  display: grid;
+  text-decoration: none;
+  place-items: center;
+  transition: 300ms;
 }
+
+.place-order-form button:hover {
+  background-color: var(--blue-800);
+}
+
 
 .single-product-go-back {
   background-color: var(--zinc-100);
@@ -76,4 +87,10 @@
   max-width: 80rem;
   width: 100%;
   margin: 3rem;
+}
+
+.single-product-out-of-stocks {
+  margin-top: 1rem;
+  font-weight: 700;
+  color: var(--red-600);
 }
