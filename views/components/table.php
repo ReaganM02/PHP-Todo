@@ -6,6 +6,7 @@
       <th scope="col">Quantity</th>
       <th scope="col">Status</th>
       <th scope="col">Created</th>
+      <th scope="col">Orders</th>
       <th scope="col" class="action-column">Action</th>
     </tr>
   </thead>
@@ -21,9 +22,10 @@
           <?php echo formatStockStatus($product['stocks'])?>
           </td>
           <td data-label="Created"><?php echo formatDate($product['date_created']); ?></td>
+          <td data-label="No. Orders"><?php echo clean(abs($product['orders'])) ?></td>
           <td data-label="Action" class="table-action">
             <a href="/product/view?id=<?php echo abs($product['id']) ?>" class="action-view">View</a>
-            <a href="/product/delete" class="action-edit">Edit</a>
+            <a href="/product/edit?id=<?php echo abs($product['id']) ?>" class="action-edit">Edit</a>
             <form class="action-form-delete" method="POST" action="/product/delete">
               <input type="hidden" name="product-id" value="<?php echo abs($product['id']) ?>"/>
               <input type="hidden" name="_method" value="DELETE"/>
