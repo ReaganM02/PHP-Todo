@@ -1,3 +1,3 @@
 # PHP TODO MVC Practice with basic routing
 
-![Screenshot example]('https://github.com/ReaganM02/PHP-Todo/blob/main/screenshot.webp')
+![screenshot](https://wc-multi-step-plugin.reaganfs.com/wp-content/uploads/2025/01/screenshot.webp)
